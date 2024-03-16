@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+
+<body>
+    <h1>Dados Recebidos</h1>
+    <label for="filtroCategoria">Filtrar por Categoria:</label>
+    <select id="filtroCategoria">
+        <option value="receita">Receita</option>
+        <option value="despesas">Despesas</option>
+        <option value="ativos">Ativos</option>
+        <option value="passivos">Passivos</option>
+        <option value="patrimonio">Patrimônio Líquido</option>
+    </select>
+    <button onclick="filtrarPorCategoria()">Filtrar</button><br><br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Ação</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody id="transactionData">
+            <!-- Os dados do formulário serão exibidos aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        function updateTransactionData() {
+            // Verificar se há dados armazenados no localStorage
+            var transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+            // Exibir os dados na tabela
+            var tableBody = document.getElementById("transactionData");
+            tableBody.innerHTML = ""; // Limpar a tabela antes de atualizar
+
+            transactions.forEach(function (transaction, index) {
+                var row = "<tr>";
+                row += "<td>" + transaction.categoria + "</td>";
+                row += "<td>" + transaction.acao + "</td>";
+                row += "<td>" + transaction.descricao + "</td>";
+                row += "<td>" + transaction.valor + "</td>";
+                row += "<td>" + transaction.data + "</td>";
+                row += "<td><button onclick='removerEntrada(" + index + ")'>Excluir</button></td>";
+                row += "</tr>";
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function filtrarPorCategoria() {
+            var filtroCategoria = document.getElementById("filtroCategoria").value.toLowerCase();
+            var rows = document.getElementById("transactionData").getElementsByTagName("tr");
+
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName("td");
+                var categoria = cells[0].innerText.toLowerCase();
+                if (categoria === filtroCategoria || filtroCategoria === "patrimonio") {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        function removerEntrada(index) {
+            var transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            transactions.splice(index, 1);
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+            updateTransactionData();
+        }
+
+        // Chamar a função de atualização imediatamente ao carregar a página
+        window.onload = updateTransactionData;
+    </script>
+</body>
+
+</html>
