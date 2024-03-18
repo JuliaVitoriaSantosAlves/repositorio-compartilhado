@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: rgb(245, 242, 242);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    width: 85vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.atalhos a {
+    color: black;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.tabela {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    height: 85vh;
+}
+
+label {
+    font-size: 1.3em;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+select {
+    font-size: 1.3em;
+    border-radius: 5px;
+}
+
+button {
+    font-size: 0.8rem;
+    border: 2px solid gray;
+    width: 15vw;
+    height: 5vh;
+    margin: 1.5rem auto;
+    border-radius: 5px;
+    background-color: rgb(245, 242, 242);
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: rgb(194, 192, 192);
+    transition: 0.5s;
+}
+
+#balancoPatrimonial {
+    border: 2px solid black;
+    width: 85vw;
+}
+
+#balancoPatrimonial h2 {
+    text-align: center;
+}
+
+#fluxoCaixa {
+    border: 2px solid black;
+    width: 85vw;
+}
+
+#fluxoCaixa h2 {
+    text-align: center;
+}
+
+#demonstracaoResultados {
+    border: 2px solid black;
+    width: 85vw;
+}
+
+#demonstracaoResultados h2 {
+    text-align: center;
+}

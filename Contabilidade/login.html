@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" method="POST">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="role">Escolha o tipo de usuário:</label>
+        <input type="radio" id="admin" name="role" value="admin" required>
+        <label for="admin">Administração</label>
+        <input type="radio" id="visitor" name="role" value="visitor" required>
+        <label for="visitor">Visita</label>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+</body>
+
+</html>

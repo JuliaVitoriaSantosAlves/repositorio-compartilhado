@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: rgb(245, 242, 242);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    width: 70vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0 2rem;
+}
+
+.buscar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscar label {
+    margin: 30px;
+}
+
+.tabela {
+    border: 2px solid gray;
+    background-color: rgb(194, 192, 192);
+    border-radius: 10px;
+    width: 70vw;
+    height: 85vh;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+}
